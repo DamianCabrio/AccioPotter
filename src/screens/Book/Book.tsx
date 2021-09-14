@@ -9,10 +9,6 @@ import { goToScreen } from '../../navigation/controls';
 import { colors } from '../../utils/theme';
 import useBooksData from './hooks/useBooksData';
 
-const goToExperimentalScreen = () => {
-  goToScreen('Experimental');
-};
-
 const ListItem = ({ id, title }: { id: number; title: string }) => (
   <TouchableOpacity
     onPress={() => goToScreen('BookDetails', { id, title })}
@@ -32,7 +28,7 @@ const renderFlatlistItem = ({ item }: { item: Book }) => (
   <ListItem id={item.id} title={item.title} />
 );
 
-const HomeScreen = () => {
+const BookScreen = () => {
   const [refreshFlag, setRefreshFlag] = useState<boolean>(false);
   const { books, loading, errorOccurred } = useBooksData(refreshFlag);
 
@@ -53,7 +49,7 @@ const HomeScreen = () => {
   if (loading) {
     return (
       <>
-        <Header showBackButton={false} title="Home Screen" />
+        <Header showBackButton={false} title="Book Screen" />
         <View style={styles.wholeScreenCenter}>
           <ActivityIndicator size="large" color={colors.mainOrange} />
         </View>
@@ -73,10 +69,8 @@ const HomeScreen = () => {
 
   return (
     <>
-      <Header showBackButton={false} title="Home Screen" />
+      <Header showBackButton={false} title="Book Screen" />
       <View style={styles.mainContainer}>
-        <Separator size={20} />
-        <DefaultButton text="Go To Experimental Screen" onPress={goToExperimentalScreen} />
         <Separator size={20} />
         <FlatList
           keyExtractor={flatlistKeyExtractor}
@@ -93,4 +87,4 @@ const HomeScreen = () => {
   );
 };
 
-export default HomeScreen;
+export default BookScreen;

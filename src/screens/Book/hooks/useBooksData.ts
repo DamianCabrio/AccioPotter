@@ -18,7 +18,7 @@ function useBooksData(refreshFlag: boolean) {
         setErrorOccurred(true);
       }
     } catch (error) {
-      console.log('Error getting books on Home Screen', error);
+      console.log('Error getting books on Book Screen', error);
       setErrorOccurred(true);
     } finally {
       setLoading(false);
