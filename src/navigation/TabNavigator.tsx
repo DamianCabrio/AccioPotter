@@ -34,16 +34,21 @@ const getIconName = (routeName: string) => {
 };
 
 const navigatorScreenOptions = ({ route }: { route: Route }) => ({
-  tabBarIcon: ({ focused, color, size }: { focused: boolean; color: string; size: number }) => {
+  tabBarIcon: ({ color }: { focused: boolean; color: string; size: number }) => {
     const iconName = getIconName(route.name);
-    const iconSize = focused ? size * 1.2 : size;
-    return <MaterialIcon name={iconName} size={iconSize} color={color} />;
+    return <MaterialIcon name={iconName} size={30} color={color} />;
   },
   tabBarAllowFontScaling: false,
-  tabBarActiveTintColor: colors.mainOrange,
-  tabBarInactiveTintColor: colors.lightBlue,
+  tabBarActiveTintColor: colors.yellow,
+  tabBarInactiveTintColor: colors.yellow,
+  tabBarStyle: {
+    backgroundColor: colors.brown,
+    height: 55,
+    paddingBottom: 5,
+    paddingTop: 5,
+  },
   tabBarLabelStyle: {
-    fontSize: 12,
+    fontSize: 11,
   },
   headerShown: false,
 });
@@ -52,7 +57,11 @@ const TabNavigator = () => {
   return (
     <Tab.Navigator screenOptions={navigatorScreenOptions}>
       <Tab.Screen name="BookTab" component={BookStack} options={{ title: 'Books' }} />
-      <Tab.Screen name="CharacterTab" component={CharacterStack} options={{ title: 'Character' }} />
+      <Tab.Screen
+        name="CharacterTab"
+        component={CharacterStack}
+        options={{ title: 'Characters' }}
+      />
       <Tab.Screen name="HistoryTab" component={HistoryScreen} options={{ title: 'History' }} />
     </Tab.Navigator>
   );

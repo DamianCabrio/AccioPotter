@@ -1,10 +1,10 @@
 import React from 'react';
-import { TouchableOpacity, View } from 'react-native';
+import { ImageBackground, TouchableOpacity, View } from 'react-native';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import Separator from '../Separator';
-import Typography from '../Typography';
+import Logo from '../../assets/images/Logo/Logo';
 import styles from './styles';
 import { colors } from '../../utils/theme';
 
@@ -17,16 +17,20 @@ interface Props {
   showBackButton?: boolean;
   title: string;
 }
+//const image = {require('../../assets/images/banner.png')};
 
 const Header = ({
   onPressBackButton,
   onPressRightButton,
   RightSideComponent,
   showBackButton,
-  title,
 }: Props) => {
   return (
-    <>
+    <ImageBackground
+      source={require('../../assets/images/banner.png')}
+      resizeMode="cover"
+      style={styles.image}
+    >
       <SafeAreaView edges={['top']} />
       <View style={styles.mainContainer}>
         {showBackButton ? (
@@ -37,9 +41,7 @@ const Header = ({
           <Separator isHorizontal size={40} />
         )}
         <View style={styles.titleContainer}>
-          <Typography align="center" numberOfLines={2} variant="bold" size={17}>
-            {title}
-          </Typography>
+          <Logo />
         </View>
         {RightSideComponent ? (
           <TouchableOpacity onPress={onPressRightButton} style={styles.sideButtonContainer}>
@@ -49,7 +51,7 @@ const Header = ({
           <Separator isHorizontal size={40} />
         )}
       </View>
-    </>
+    </ImageBackground>
   );
 };
 

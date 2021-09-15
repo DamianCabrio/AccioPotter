@@ -4,10 +4,13 @@ import { colors } from '../../utils/theme';
 const styles = StyleSheet.create({
   flatList: {
     flex: 1,
-    width: '100%',
+    width: 374,
+    backgroundColor: colors.white,
+    borderRadius: 30,
+    marginBottom: 20,
   },
   flatlistContent: {
-    paddingHorizontal: 20,
+    paddingHorizontal: 6,
   },
   mainContainer: {
     alignItems: 'center',
@@ -16,14 +19,16 @@ const styles = StyleSheet.create({
   },
   listItemContainer: {
     alignItems: 'center',
-    backgroundColor: colors.white,
+    backgroundColor: colors.grey,
     borderColor: 'transparent',
-    borderRadius: 10,
+    borderRadius: 30,
     borderWidth: 1,
-    height: 50,
+    height: 220,
     justifyContent: 'center',
-    paddingHorizontal: 20,
-    width: '100%',
+    paddingHorizontal: 5,
+    marginHorizontal: 10,
+    marginTop: 20,
+    width: 160,
   },
   listItemContainerShadow: {
     shadowColor: colors.black,

@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
   mainContainer: {
     alignItems: 'center',
     flexDirection: 'row',
-    height: IS_ANDROID ? 50 : 40,
+    height: IS_ANDROID ? 84 : 40,
   },
   sideButtonContainer: {
     height: 40,
@@ -15,6 +15,18 @@ const styles = StyleSheet.create({
   titleContainer: {
     alignItems: 'center',
     flex: 1,
+  },
+  image: {
+    justifyContent: 'center',
+  },
+  logo: {
+    width: 50,
+    height: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 1,
+    borderColor: '#fff',
+    borderRadius: 30,
   },
 });
 
