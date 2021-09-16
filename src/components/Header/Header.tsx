@@ -35,7 +35,7 @@ const Header = ({
       <View style={styles.mainContainer}>
         {showBackButton ? (
           <TouchableOpacity onPress={onPressBackButton} style={styles.sideButtonContainer}>
-            <MaterialIcon name="navigate-before" size={35} color={colors.black} />
+            <MaterialIcon name="navigate-before" size={35} color={colors.white} />
           </TouchableOpacity>
         ) : (
           <Separator isHorizontal size={40} />

@@ -17,7 +17,7 @@ const SearchBox = () => {
         autoCorrect={false}
         // editable={false}
         // keyboardType="numeric"
-        placeholder="Search a book"
+        placeholder="Search..."
         value={inputText}
         onChangeText={(text) => setInputText(text)}
         //onChangeText={setInputText}
