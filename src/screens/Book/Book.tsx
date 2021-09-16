@@ -10,11 +10,8 @@ import { colors } from '../../utils/theme';
 import useBooksData from './hooks/useBooksData';
 
 const ListItem = ({ id, title }: { id: number; title: string }) => (
-  <TouchableOpacity
-    onPress={() => goToScreen('BookDetails', { id, title })}
-    style={styles.listItemContainerShadow}
-  >
-    <View style={styles.listItemContainer}>
+  <TouchableOpacity onPress={() => goToScreen('BookDetails', { id, title })}>
+    <View style={[styles.listItemContainer, styles.listItemContainerShadow]}>
       <Typography numberOfLines={2} align="center">
         {title}
       </Typography>
