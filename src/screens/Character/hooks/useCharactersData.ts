@@ -1,24 +1,24 @@
 import { useEffect, useState } from 'react';
 
-import { getAllBooks } from '../../../services';
+import { getAllCharacters } from '../../../services';
 
 function useCharactersData(refreshFlag: boolean) {
-  const [books, setBooks] = useState<Book[]>([]);
+  const [characters, setCharacters] = useState<Character[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [errorOccurred, setErrorOccurred] = useState<boolean>(false);
 
-  const getBooksData = async () => {
+  const getCharactersData = async () => {
     setLoading(true);
     setErrorOccurred(false);
     try {
-      const { success, data } = await getAllBooks();
+      const { success, data } = await getAllCharacters();
       if (success) {
-        setBooks(data);
+        setCharacters(data);
       } else {
         setErrorOccurred(true);
       }
     } catch (error) {
-      console.log('Error getting books on Book Screen', error);
+      console.log('Error getting characters on Characters Screen', error);
       setErrorOccurred(true);
     } finally {
       setLoading(false);
@@ -26,10 +26,10 @@ function useCharactersData(refreshFlag: boolean) {
   };
 
   useEffect(() => {
-    getBooksData();
+    getCharactersData();
   }, [refreshFlag]);
 
-  return { books, loading, errorOccurred };
+  return { characters, loading, errorOccurred };
 }
 
 export default useCharactersData;
