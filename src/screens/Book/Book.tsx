@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import { ActivityIndicator, FlatList, StatusBar, TouchableOpacity, View } from 'react-native';
+import { ActivityIndicator, FlatList, StatusBar, View } from 'react-native';
 import { useNetInfo } from '@react-native-community/netinfo';
 
 import {
@@ -12,16 +12,11 @@ import {
 } from '../../components';
 import styles from './styles';
 
-import { goToScreen } from '../../navigation/controls';
 import { colors } from '../../utils/theme';
 import useBooksData from './hooks/useBooksData';
 
 const ListItem = ({ id, title, cover }: { id: number; title: string; cover: string }) => (
-  <TouchableOpacity onPress={() => goToScreen('BookDetails', { id, title })}>
-    <View style={[styles.listItemContainer]}>
-      <SimpleCard cover={cover} title={title} textSize={14} variant="primary" />
-    </View>
-  </TouchableOpacity>
+  <SimpleCard cover={cover} id={id} title={title} textSize={14} variant="primary" />
 );
 
 const flatlistKeyExtractor = (item: Book) => `${item.id}`;

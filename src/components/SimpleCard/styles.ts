@@ -3,31 +3,32 @@ import { StyleSheet } from 'react-native';
 import { colors } from '../../utils/theme';
 
 const styles = StyleSheet.create({
-  mainContainer: {
-    alignItems: 'center',
-    backgroundColor: colors.mainOrange,
-    borderColor: colors.mainOrange,
-    borderRadius: 10,
-    borderWidth: 1,
-    justifyContent: 'center',
-    height: 50,
-    marginBottom: 10,
-    marginTop: 0,
-    width: '100%',
-  },
   primary: {
-    backgroundColor: colors.black,
+    backgroundColor: colors.white,
     color: colors.black,
   },
   secondary: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.grey,
     color: colors.black,
   },
   imageView: {
     width: '100%',
-    height: 150,
+    height: 160,
     marginBottom: 10,
+    marginTop: 0,
+    paddingTop: 0,
     borderRadius: 30,
+  },
+  listItemContainer: {
+    alignItems: 'center',
+    backgroundColor: colors.white,
+    borderColor: 'transparent',
+    borderRadius: 30,
+    height: 232,
+    justifyContent: 'center',
+    marginHorizontal: 10,
+    marginTop: 20,
+    width: 160,
   },
 });
 

@@ -1,24 +1,28 @@
 import React from 'react';
-import { Image, View } from 'react-native';
+import { Image, TouchableOpacity, View } from 'react-native';
 
 import Typography from '../Typography';
 import styles from './styles';
+import { goToScreen } from '../../navigation/controls';
 
 interface Props {
   cover: string;
+  id: number;
   title: string;
   textSize?: number;
   variant?: 'primary' | 'secondary';
 }
 
-const SimpleCard = ({ cover, title, textSize, variant = 'primary' }: Props) => {
+const SimpleCard = ({ cover, id, title, textSize, variant = 'primary' }: Props) => {
   return (
-    <View style={[styles.mainContainer, styles[variant]]}>
-      <Image source={{ uri: cover }} style={styles.imageView} />
-      <Typography size={textSize} variant="medium">
-        {title}
-      </Typography>
-    </View>
+    <TouchableOpacity onPress={() => goToScreen('BookDetails', { id, title })}>
+      <View style={[styles.listItemContainer, styles[variant]]}>
+        <Image source={{ uri: cover }} style={styles.imageView} />
+        <Typography size={textSize} variant="medium">
+          {title}
+        </Typography>
+      </View>
+    </TouchableOpacity>
   );
 };
 
