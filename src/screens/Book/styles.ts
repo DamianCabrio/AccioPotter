@@ -3,14 +3,14 @@ import { colors } from '../../utils/theme';
 
 const styles = StyleSheet.create({
   flatList: {
-    flex: 1,
+    //flex: 1,
     width: 374,
     backgroundColor: colors.white,
     borderRadius: 30,
     marginBottom: 20,
   },
   flatlistContent: {
-    paddingHorizontal: 6,
+    paddingHorizontal: 6.75,
   },
   mainContainer: {
     alignItems: 'center',
@@ -22,7 +22,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.grey,
     borderColor: 'transparent',
     borderRadius: 30,
-    borderWidth: 1,
     height: 220,
     justifyContent: 'center',
     paddingHorizontal: 5,
@@ -30,22 +29,18 @@ const styles = StyleSheet.create({
     marginTop: 20,
     width: 160,
   },
-  listItemContainerShadow: {
-    shadowColor: colors.black,
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.2,
-    shadowRadius: 1.41,
 
-    elevation: 2,
-  },
   wholeScreenCenter: {
     alignItems: 'center',
     flex: 1,
     justifyContent: 'center',
     width: '100%',
+  },
+  imageView: {
+    width: '100%',
+    height: 100,
+    margin: 7,
+    borderRadius: 7,
   },
 });
 

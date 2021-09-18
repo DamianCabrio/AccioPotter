@@ -2,19 +2,24 @@ import React, { useCallback, useState } from 'react';
 import { ActivityIndicator, FlatList, StatusBar, TouchableOpacity, View } from 'react-native';
 import { useNetInfo } from '@react-native-community/netinfo';
 
-import { DefaultButton, Header, SearchBox, Separator, Typography } from '../../components';
+import {
+  DefaultButton,
+  Header,
+  SearchBox,
+  Separator,
+  SimpleCard,
+  Typography,
+} from '../../components';
 import styles from './styles';
 
 import { goToScreen } from '../../navigation/controls';
 import { colors } from '../../utils/theme';
 import useBooksData from './hooks/useBooksData';
 
-const ListItem = ({ id, title }: { id: number; title: string }) => (
+const ListItem = ({ id, title, cover }: { id: number; title: string; cover: string }) => (
   <TouchableOpacity onPress={() => goToScreen('BookDetails', { id, title })}>
-    <View style={[styles.listItemContainer, styles.listItemContainerShadow]}>
-      <Typography numberOfLines={2} align="center">
-        {title}
-      </Typography>
+    <View style={[styles.listItemContainer]}>
+      <SimpleCard cover={cover} title={title} textSize={14} variant="primary" />
     </View>
   </TouchableOpacity>
 );
@@ -22,7 +27,7 @@ const ListItem = ({ id, title }: { id: number; title: string }) => (
 const flatlistKeyExtractor = (item: Book) => `${item.id}`;
 
 const renderFlatlistItem = ({ item }: { item: Book }) => (
-  <ListItem id={item.id} title={item.title} />
+  <ListItem id={item.id} title={item.title} cover={item.book_covers[0].URL} />
 );
 
 const BookScreen = () => {
