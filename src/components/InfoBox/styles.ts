@@ -7,6 +7,16 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     borderRadius: 48,
   },
+  infoBlock: {
+    flexDirection: 'column',
+    paddingHorizontal: 10,
+    width: '50%',
+  },
+  infoData: {
+    flexDirection: 'row',
+    paddingBottom: 10,
+    width: '50%',
+  },
   imageView: {
     width: '50%',
     height: 278,
