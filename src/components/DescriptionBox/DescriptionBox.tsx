@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { View } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import { Typography } from '..';
 import styles from './styles';
 
@@ -11,7 +11,9 @@ interface Props {
 const DescriptionBox = ({ description }: Props) => {
   return (
     <View style={styles.mainContainer}>
-      <Typography variant="regular">{description}</Typography>
+      <ScrollView>
+        <Typography variant="regular">{description}</Typography>
+      </ScrollView>
     </View>
   );
 };
