@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 1,
     justifyContent: 'center',
-    marginTop: 100,
+    marginTop: 170,
     width: '100%',
   },
   wholeScreenCenter: {

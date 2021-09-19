@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ActivityIndicator, Alert, View } from 'react-native';
 
-import { Header, Separator, TitleBox, Typography } from '../../components';
+import { DescriptionBox, Header, Separator, TitleBox, Typography } from '../../components';
 import { getBookById } from '../../services';
 
 import styles from './styles';
@@ -51,6 +51,8 @@ const BookDetailsScreen = ({ route }) => {
       <Header title={title} />
       <View style={styles.mainContainer}>
         <TitleBox title="Harry Potter and the Philosopher’s Stone" textSize={25} />
+        <Separator size={20} />
+        <DescriptionBox description="Harry Potter and the  Stone Philosopher’ser’s  Stone Psopher’s  Stone Philosopher’s StonePhilosopher’s Philosopher’s Stone Philosopher’s StonePhilosopher’s StonePhilosopher’s Stone Philosopher’s StonePhilosopher’s  Stone Philosopher’s StonePhilosopher’s  Stone Philosopher’s StonePhilosopher’s  StonePhilosopher’s Stone" />
         <Separator size={20} />
         <Typography>{JSON.stringify(book, null, 2)}</Typography>
       </View>
