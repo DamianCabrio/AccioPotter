@@ -3,7 +3,7 @@ import { colors } from '../../utils/theme';
 
 const styles = StyleSheet.create({
   flatList: {
-    //flex: 1,
+    flex: 1,
     width: 374,
     backgroundColor: colors.softGrey,
     borderRadius: 30,
@@ -11,6 +11,7 @@ const styles = StyleSheet.create({
   },
   flatlistContent: {
     paddingHorizontal: 6.75,
+    paddingBottom: 20,
   },
   mainContainer: {
     alignItems: 'center',
