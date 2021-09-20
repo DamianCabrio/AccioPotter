@@ -16,10 +16,9 @@ import { colors } from '../../utils/theme';
 import useCharactersData from './hooks/useCharactersData';
 
 const flatlistKeyExtractor = (item: Character) => `${item.id}`;
-
 const renderFlatlistItem = ({ item }: { item: Character }) => (
   <SimpleCard
-    cover="../../assets/images/placeholder-img.png"
+    cover="https://orbiz.in/wp-content/uploads/2020/02/harry-potter.jpg"
     id={item.id}
     title={item.name}
     textSize={14}

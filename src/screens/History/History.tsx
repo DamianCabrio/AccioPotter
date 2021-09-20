@@ -15,11 +15,12 @@ const onPressHistoryItem = (searchParam: string, type: string) => {
 };
 
 const renderFlatlistItem = ({ item }: { item: HistoryItem }) => (
-  <TouchableOpacity
-    style={[styles.mainContainer]}
-    onPress={() => onPressHistoryItem(item.query, item.type)}
-  >
-    <Typography size={14}>{`${item.query} - ${item.type}`}</Typography>
+  <TouchableOpacity onPress={() => onPressHistoryItem(item.query, item.type)}>
+    <View style={styles.item}>
+      <Typography color={colors.brown} size={14} variant="bold">
+        {`${item.query} - ${item.type}`}{' '}
+      </Typography>
+    </View>
   </TouchableOpacity>
 );
 
@@ -46,7 +47,7 @@ const HistoryScreen = () => {
   if (errorOccurred) {
     return (
       <View style={styles.wholeScreenCenter}>
-        <Typography>No searcheas found</Typography>
+        <Typography>No searches found</Typography>
         <DefaultButton text="Reload" onPress={toggleRefreshFlag} />
       </View>
     );
@@ -56,9 +57,12 @@ const HistoryScreen = () => {
     <>
       <Header showBackButton={false} title="History" />
       <View style={styles.mainContainer}>
-        <Typography size={18}>History Screen</Typography>
-        <Typography size={11}>15 last searches</Typography>
+        <Typography size={25} color={colors.brown} variant="bold">
+          HISTORY
+        </Typography>
         <Separator size={10} />
+        <Typography size={12}>15 last searches</Typography>
+        <Separator size={20} />
         {history && history.length > 0 ? (
           <FlatList
             keyExtractor={flatlistKeyExtractor}
@@ -72,7 +76,7 @@ const HistoryScreen = () => {
           />
         ) : (
           <>
-            <Typography>No searcheas found</Typography>
+            <Typography>No searches found</Typography>
             <DefaultButton text="Reload" onPress={toggleRefreshFlag} />
           </>
         )}

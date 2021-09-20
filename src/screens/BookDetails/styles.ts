@@ -10,6 +10,10 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     width: '100%',
   },
+  subContainer: {
+    backgroundColor: colors.grey,
+    paddingHorizontal: 20,
+  },
   wholeScreenCenter: {
     alignItems: 'center',
     flex: 1,
