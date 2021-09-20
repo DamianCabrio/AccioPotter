@@ -51,16 +51,17 @@ const BookDetailsScreen = ({ route }) => {
       <Header title={title} />
       <ScrollView>
         <View style={styles.mainContainer}>
-          <TitleBox title="Harry Potter and the Philosopher’s Stone" textSize={25} />
+          <TitleBox title={book[0].title} textSize={25} />
           <Separator size={20} />
           <InfoBox
-            cover="https://res.cloudinary.com/the-harry-potter-database/image/upload/c_fill,h_390,w_250/v1590249796/Harry_Potter_1_-_Harry_Potter_and_the_Philosophers_Stone_-_Thomas_Taylor_tkuvuf.jpg"
-            description="datos"
+            cover={book[0].book_covers[0].URL}
+            author={book[0].author}
+            publishDate={book[0].publish_date[0].UK}
+            plot={book[0].plot_take_place_years}
           />
           <Separator size={20} />
-          <DescriptionBox description="Harry Potter and the  Stone Philosopher’ser’s  Stone Psopher’s  Stone Philosopher’s StonePhilosopher’s Philosopher’s Stone Philosopher’s StonePhilosopher’s StonePhilosopher’s Stone Philosopher’s StonePhilosopher’s  Stone Philosopher’s StonePhilosopher’s  Stone Philosopher’s StonePhilosopher’s  StonePhilosopher’s Stone" />
+          <DescriptionBox description="Sinopsis: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed libero enim sed faucibus turpis. Magna fringilla urna porttitor rhoncus dolor." />
           <Separator size={20} />
-          <Typography>{JSON.stringify(book, null, 2)}</Typography>
         </View>
       </ScrollView>
     </>
