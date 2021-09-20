@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     paddingTop: 20,
+    paddingBottom: 70,
     width: '100%',
   },
   subContainer: {

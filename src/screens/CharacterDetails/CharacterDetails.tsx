@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { ActivityIndicator, Alert, View } from 'react-native';
+import { ActivityIndicator, Alert, ScrollView, View } from 'react-native';
 
-import { Header, Separator, Typography } from '../../components';
+import { DescriptionBox, Header, InfoBoxCharacter, Separator, TitleBox } from '../../components';
 import { getCharacterById } from '../../services';
 
 import styles from './styles';
@@ -49,11 +49,24 @@ const CharacterDetailsScreen = ({ route }) => {
   return (
     <>
       <Header title={title} />
-      <View style={styles.mainContainer}>
-        <Typography size={18}>Character Detail Screen</Typography>
-        <Separator />
-        <Typography>{JSON.stringify(character, null, 2)}</Typography>
-      </View>
+      <ScrollView>
+        <View style={styles.mainContainer}>
+          <TitleBox title={character[0].name} textSize={25} />
+          <Separator size={20} />
+          <InfoBoxCharacter
+            name={character[0].name}
+            birth={character[0].birth}
+            species={character[0].species}
+            gender={character[0].gender}
+            hair_color={character[0].hair_color}
+            eye_color={character[0].eye_color}
+            house={character[0].house}
+          />
+          <Separator size={20} />
+          <DescriptionBox description="Biography: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed libero enim sed faucibus turpis. Magna fringilla urna porttitor rhoncus dolor." />
+          <Separator size={20} />
+        </View>
+      </ScrollView>
     </>
   );
 };

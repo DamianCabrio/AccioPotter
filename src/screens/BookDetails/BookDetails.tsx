@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ActivityIndicator, Alert, ScrollView, View } from 'react-native';
 
-import { DescriptionBox, Header, InfoBox, Separator, TitleBox, Typography } from '../../components';
+import { DescriptionBox, Header, InfoBox, Separator, TitleBox } from '../../components';
 import { getBookById } from '../../services';
 
 import styles from './styles';
