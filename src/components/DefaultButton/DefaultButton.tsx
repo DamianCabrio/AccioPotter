@@ -36,10 +36,4 @@ const DefaultButton = ({
   );
 };
 
-DefaultButton.defaultProps = {
-  additionalStyle: {},
-  textSize: 16,
-  variant: 'primary',
-};
-
 export default DefaultButton;

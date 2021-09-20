@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
   flatList: {
     flex: 1,
     width: 374,
-    backgroundColor: colors.white,
+    backgroundColor: colors.softGrey,
     borderRadius: 30,
     marginBottom: 20,
   },
@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 6,
   },
   mainContainer: {
+    backgroundColor: colors.grey,
     alignItems: 'center',
     flex: 1,
     width: '100%',

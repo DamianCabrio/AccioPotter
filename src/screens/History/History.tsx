@@ -17,7 +17,7 @@ const onPressHistoryItem = (searchParam: string, type: string) => {
 const renderFlatlistItem = ({ item }: { item: HistoryItem }) => (
   <TouchableOpacity onPress={() => onPressHistoryItem(item.query, item.type)}>
     <View style={styles.item}>
-      <Typography color={colors.brown} size={14} variant="bold">
+      <Typography color={colors.brown} size={15} variant="bold">
         {`${item.query} - ${item.type}`}{' '}
       </Typography>
     </View>
