@@ -10,12 +10,13 @@ interface Props {
   id: number;
   title: string;
   textSize?: number;
+  screenDetail: string;
   variant?: 'primary' | 'secondary';
 }
 
-const SimpleCard = ({ cover, id, title, textSize, variant = 'primary' }: Props) => {
+const SimpleCard = ({ cover, id, screenDetail, title, textSize, variant = 'primary' }: Props) => {
   return (
-    <TouchableOpacity onPress={() => goToScreen('BookDetails', { id, title })}>
+    <TouchableOpacity onPress={() => goToScreen(screenDetail, { id, title })}>
       <View style={[styles.listItemContainer, styles[variant]]}>
         <Image source={{ uri: cover }} style={styles.imageView} />
         <Typography size={textSize} variant="medium">

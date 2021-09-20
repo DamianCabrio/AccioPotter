@@ -20,6 +20,7 @@ const renderFlatlistItem = ({ item }: { item: Character }) => (
   <SimpleCard
     cover="https://orbiz.in/wp-content/uploads/2020/02/harry-potter.jpg"
     id={item.id}
+    screenDetail="CharacterDetails"
     title={item.name}
     textSize={14}
     variant="primary"

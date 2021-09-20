@@ -21,6 +21,7 @@ const renderFlatlistItem = ({ item }: { item: Book }) => (
   <SimpleCard
     cover={item.book_covers[0].URL}
     id={item.id}
+    screenDetail="BookDetails"
     title={item.title}
     textSize={14}
     variant="primary"
