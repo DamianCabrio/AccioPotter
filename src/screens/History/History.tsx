@@ -46,9 +46,8 @@ const HistoryScreen = () => {
   if (errorOccurred) {
     return (
       <View style={styles.wholeScreenCenter}>
-        <Typography size={20}>An unknown error occurred :'(</Typography>
-        <Separator size={15} />
-        <DefaultButton text="Retry" onPress={toggleRefreshFlag} />
+        <Typography>No searcheas found</Typography>
+        <DefaultButton text="Reload" onPress={toggleRefreshFlag} />
       </View>
     );
   }
