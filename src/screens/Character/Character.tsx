@@ -1,39 +1,46 @@
-import React, { useCallback, useState } from 'react';
-import { ActivityIndicator, FlatList, TouchableOpacity, View } from 'react-native';
+import React, { useCallback, useState, useEffect } from 'react';
+import { ActivityIndicator, FlatList, View } from 'react-native';
 import { useNetInfo } from '@react-native-community/netinfo';
 
-import { DefaultButton, Header, Separator, Typography, SearchBox } from '../../components';
+import {
+  DefaultButton,
+  Header,
+  Separator,
+  Typography,
+  SearchBox,
+  SimpleCard,
+} from '../../components';
 import styles from './styles';
 
-import { goToScreen } from '../../navigation/controls';
 import { colors } from '../../utils/theme';
 import useCharactersData from './hooks/useCharactersData';
-
-const ListItem = ({ id, title }: { id: number; title: string }) => (
-  <TouchableOpacity onPress={() => goToScreen('CharacterDetails', { id, title })}>
-    <View style={[styles.listItemContainer, styles.listItemContainerShadow]}>
-      <Typography numberOfLines={2} align="center">
-        {title}
-      </Typography>
-    </View>
-  </TouchableOpacity>
-);
 
 const flatlistKeyExtractor = (item: Character) => `${item.id}`;
 
 const renderFlatlistItem = ({ item }: { item: Character }) => (
-  <ListItem id={item.id} title={item.name} />
+  <SimpleCard
+    cover="../../assets/images/placeholder-img.png"
+    id={item.id}
+    title={item.name}
+    textSize={14}
+    variant="primary"
+  />
 );
 
 const CharacterScreen = () => {
   const [refreshFlag, setRefreshFlag] = useState<boolean>(false);
-  const { characters, loading, errorOccurred } = useCharactersData(refreshFlag);
+  const [searchQuery, setSearchQuery] = useState<string>('');
+  const { characters, loading, errorOccurred } = useCharactersData(refreshFlag, searchQuery);
 
   const netInfo = useNetInfo();
 
   const toggleRefreshFlag = useCallback(() => {
     setRefreshFlag(!refreshFlag);
   }, [refreshFlag]);
+
+  useEffect(() => {
+    setRefreshFlag(!refreshFlag);
+  }, [searchQuery]);
 
   if (!netInfo.isConnected) {
     return (
@@ -69,23 +76,27 @@ const CharacterScreen = () => {
       <Header showBackButton={false} title="Character Screen" />
       <View style={styles.mainContainer}>
         <Separator size={20} />
-        <SearchBox />
+        <SearchBox setter={setSearchQuery} />
         <Separator size={10} />
         <Typography size={25} color={colors.brown} variant="bold">
           CHARACTERS
         </Typography>
         <Separator size={15} />
-        <FlatList
-          numColumns={2}
-          keyExtractor={flatlistKeyExtractor}
-          refreshing={loading}
-          onRefresh={toggleRefreshFlag}
-          data={characters}
-          renderItem={renderFlatlistItem}
-          ItemSeparatorComponent={Separator}
-          contentContainerStyle={styles.flatlistContent}
-          style={styles.flatList}
-        />
+        {characters.length > 0 ? (
+          <FlatList
+            numColumns={2}
+            keyExtractor={flatlistKeyExtractor}
+            refreshing={loading}
+            onRefresh={toggleRefreshFlag}
+            data={characters}
+            renderItem={renderFlatlistItem}
+            ItemSeparatorComponent={Separator}
+            contentContainerStyle={styles.flatlistContent}
+            style={styles.flatList}
+          />
+        ) : (
+          <Typography>No characters found with this parameters</Typography>
+        )}
       </View>
     </>
   );

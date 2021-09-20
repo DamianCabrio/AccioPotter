@@ -13,3 +13,9 @@ type Character = {
   gender: string;
   house: string;
 };
+
+type HistoryItem = {
+  id: number;
+  query: string;
+  type: 'character' | 'book';
+};

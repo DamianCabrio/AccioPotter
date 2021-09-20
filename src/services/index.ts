@@ -1,2 +1,3 @@
-export { getAllBooks, getBookById } from './books';
-export { getAllCharacters, getCharacterById } from './characters';
+export { getAllBooks, getBookById, getFilteredBooks } from './books';
+export { getAllCharacters, getCharacterById, getFilteredCharacters } from './characters';
+export { saveHistory } from './utils';

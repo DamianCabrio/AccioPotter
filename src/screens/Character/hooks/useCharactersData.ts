@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 
-import { getAllCharacters } from '../../../services';
+import { getAllCharacters, getFilteredCharacters, saveHistory } from '../../../services';
 
-function useCharactersData(refreshFlag: boolean) {
+function useCharactersData(refreshFlag: boolean, searchQuery: string) {
   const [characters, setCharacters] = useState<Character[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [errorOccurred, setErrorOccurred] = useState<boolean>(false);
@@ -11,7 +11,19 @@ function useCharactersData(refreshFlag: boolean) {
     setLoading(true);
     setErrorOccurred(false);
     try {
-      const { success, data } = await getAllCharacters();
+      const { success, data } =
+        searchQuery.length === 0
+          ? await getAllCharacters()
+          : await getFilteredCharacters(searchQuery);
+
+      if (searchQuery.length > 0) {
+        await saveHistory({
+          query: searchQuery,
+          type: 'character',
+          id: Math.floor(Math.random() * 10000) + 1,
+        });
+      }
+
       if (success) {
         setCharacters(data);
       } else {

@@ -1,5 +1,5 @@
-import { bookDetailEndpoint, booksEndpoint } from './endpoints';
-import { get } from './fetchs';
+import { bookDetailEndpoint, booksEndpoint, booksFilteredEndpoint } from './endpoints';
+import { get } from './utils';
 
 export const getAllBooks = async () => {
   return get(booksEndpoint, 'all books');
@@ -7,4 +7,8 @@ export const getAllBooks = async () => {
 
 export const getBookById = async (id: number) => {
   return get(bookDetailEndpoint(id), `book with id ${id}`);
+};
+
+export const getFilteredBooks = async (searchQuery: string) => {
+  return get(booksFilteredEndpoint(searchQuery), 'books filtered by query: ' + searchQuery);
 };

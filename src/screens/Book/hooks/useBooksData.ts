@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 
-import { getAllBooks } from '../../../services';
+import { getAllBooks, getFilteredBooks, saveHistory } from '../../../services';
 
-function useBooksData(refreshFlag: boolean) {
+function useBooksData(refreshFlag: boolean, searchQuery: string) {
   const [books, setBooks] = useState<Book[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [errorOccurred, setErrorOccurred] = useState<boolean>(false);
@@ -11,7 +11,17 @@ function useBooksData(refreshFlag: boolean) {
     setLoading(true);
     setErrorOccurred(false);
     try {
-      const { success, data } = await getAllBooks();
+      const { success, data } =
+        searchQuery.length === 0 ? await getAllBooks() : await getFilteredBooks(searchQuery);
+
+      if (searchQuery.length > 0) {
+        await saveHistory({
+          query: searchQuery,
+          type: 'book',
+          id: Math.floor(Math.random() * 10000) + 1,
+        });
+      }
+
       if (success) {
         setBooks(data);
       } else {

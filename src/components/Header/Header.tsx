@@ -17,7 +17,6 @@ interface Props {
   showBackButton?: boolean;
   title: string;
 }
-//const image = {require('../../assets/images/banner.png')};
 
 const Header = ({
   onPressBackButton,
